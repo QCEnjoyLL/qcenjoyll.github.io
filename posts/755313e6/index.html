@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Docker版多网站签到 | 尼禄猫</title><meta name="keywords" content="docker,签到,qiandao,keylol"><meta name="author" content="Alex"><meta name="copyright" content="Alex"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="其实这个很简单，写下来也就当记录一下，顺便给某些人看看。  扯点闲话之前，讲过Docker版京东签到，但是这个只适用京东的一系列签到，如果需要签到其他网站就需要这个签到项目，之前我也用过，但是当时也没啥需求，用了一阵就删掉了。前段时间，没事做，赶巧上了pt，本来就随便玩玩，但是又不想被删号，所以就想弄个自动签到，每天领取一点魔力值保留一下账号（虽然我也不知道能不能保留住），就搜索了一下，真有项目">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Docker版多网站签到 | 尼禄猫</title><meta name="author" content="Alex"><meta name="copyright" content="Alex"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="其实这个很简单，写下来也就当记录一下，顺便给某些人看看。  扯点闲话之前，讲过Docker版京东签到，但是这个只适用京东的一系列签到，如果需要签到其他网站就需要这个签到项目，之前我也用过，但是当时也没啥需求，用了一阵就删掉了。前段时间，没事做，赶巧上了pt，本来就随便玩玩，但是又不想被删号，所以就想弄个自动签到，每天领取一点魔力值保留一下账号（虽然我也不知道能不能保留住），就搜索了一下，真有项目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker版多网站签到">
 <meta property="og:url" content="https://nerocats.cn/posts/755313e6/index.html">
@@ -14,7 +14,7 @@
 <meta property="article:tag" content="qiandao">
 <meta property="article:tag" content="keylol">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/10/17/db33d1b2be8f7558c87074968f6c398e.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://nerocats.cn/posts/755313e6/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//pingjs.qq.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://jsd.cdn.zzko.cn/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+<meta name="twitter:image" content="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/10/17/db33d1b2be8f7558c87074968f6c398e.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://nerocats.cn/posts/755313e6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?272211cf2a2bf8ac6d21425415d3a055";
@@ -25,19 +25,10 @@
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'UA-167591798-1');
-</script><script>var _mtac = {};
-(function() {
-    var mta = document.createElement("script");
-    mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
-    mta.setAttribute("name", "MTAH5");
-    mta.setAttribute("sid", "66578858");
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(mta, s);
-})();
-</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  localSearch: undefined,
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
   noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"文章已经有","messageNext":"天没有更新过了，请注意内容的时效性。"},
   highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
@@ -50,8 +41,8 @@ gtag('config', 'UA-167591798-1');
     homepage: false,
     post: false
   },
-  runtime: '天',
-  date_suffix: {
+  runtime: '',
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
@@ -61,20 +52,18 @@ gtag('config', 'UA-167591798-1');
   copyright: undefined,
   lightbox: 'fancybox',
   Snackbar: undefined,
-  source: {
-    jQuery: 'https://jsd.cdn.zzko.cn/npm/jquery@latest/dist/jquery.min.js',
-    justifiedGallery: {
-      js: 'https://jsd.cdn.zzko.cn/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-      css: 'https://jsd.cdn.zzko.cn/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-    },
-    fancybox: {
-      js: 'https://jsd.cdn.zzko.cn/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
-      css: 'https://jsd.cdn.zzko.cn/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
-    }
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
   isPhotoFigcaption: false,
   islazyload: false,
-  isanchor: false
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: 'Docker版多网站签到',
   isPost: true,
@@ -82,69 +71,77 @@ gtag('config', 'UA-167591798-1');
   isHighlightShrink: false,
   isToc: true,
   postUpdate: '2020-10-17 03:10:35'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
       }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
         document.documentElement.setAttribute('data-theme', 'dark')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
           document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
         }
       }
-      win.activateLightMode = function () {
+      win.activateLightMode = () => {
         document.documentElement.setAttribute('data-theme', 'light')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
           document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
@@ -152,9 +149,9 @@ gtag('config', 'UA-167591798-1');
       }
       const t = saveToLocal.get('theme')
     
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
-        
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
       const asideStatus = saveToLocal.get('aside-status')
       if (asideStatus !== undefined) {
         if (asideStatus === 'hide') {
@@ -164,14 +161,14 @@ gtag('config', 'UA-167591798-1');
         }
       }
     
-    const detectApple = () => {
-      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
       }
-    }
-    detectApple()
-    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_1988107_oowo1oi2b8m.css"><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="尼禄猫" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://avatars.githubusercontent.com/u/18704880?v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/note/"><i class="fa-fw fas fa-book"></i><span> 笔记</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 听音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 看电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book-open"></i><span> 读小说</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 玩游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-tools"></i><span> 工具</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://img.nerocats.com/"><i class="fa-fw iconfont icon-shenghuofuwu"></i><span> 阿里图床</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://img2.nerocats.com/"><i class="fa-fw iconfont icon-ditu"></i><span> Github图床</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://pan.nerocats.com/"><i class="fa-fw iconfont icon-nextcloud"></i><span> NextCloud</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://yun.nerocats.com/"><i class="fa-fw iconfont icon-cloud"></i><span> Cloudreve</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/10/17/db33d1b2be8f7558c87074968f6c398e.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">尼禄猫</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/note/"><i class="fa-fw fas fa-book"></i><span> 笔记</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 听音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 看电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book-open"></i><span> 读小说</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 玩游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-tools"></i><span> 工具</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://img.nerocats.com/"><i class="fa-fw iconfont icon-shenghuofuwu"></i><span> 阿里图床</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://img2.nerocats.com/"><i class="fa-fw iconfont icon-ditu"></i><span> Github图床</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://pan.nerocats.com/"><i class="fa-fw iconfont icon-nextcloud"></i><span> NextCloud</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://yun.nerocats.com/"><i class="fa-fw iconfont icon-cloud"></i><span> Cloudreve</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Docker版多网站签到</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-10-16T16:57:35.000Z" title="发表于 2020-10-17 00:57:35">2020-10-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-10-16T19:10:35.000Z" title="更新于 2020-10-17 03:10:35">2020-10-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%AB%99%E6%95%99%E7%A8%8B/">网站教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">930</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Docker版多网站签到"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_1988107_oowo1oi2b8m.css"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="尼禄猫" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://avatars.githubusercontent.com/u/18704880?v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/note/"><i class="fa-fw fas fa-book"></i><span> 笔记</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 听音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 看电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book-open"></i><span> 读小说</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 玩游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-tools"></i><span> 工具</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://img.nerocats.com/"><i class="fa-fw iconfont icon-shenghuofuwu"></i><span> 橙子图床</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://img2.nerocats.com/"><i class="fa-fw iconfont icon-ditu"></i><span> Chevereto图床</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://pan.nerocats.com/"><i class="fa-fw iconfont icon-nextcloud"></i><span> NextCloud</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://yun.nerocats.com/"><i class="fa-fw iconfont icon-cloud"></i><span> Cloudreve</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/10/17/db33d1b2be8f7558c87074968f6c398e.png')"><nav id="nav"><span id="blog-info"><a href="/" title="尼禄猫"><span class="site-name">尼禄猫</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/note/"><i class="fa-fw fas fa-book"></i><span> 笔记</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 听音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 看电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book-open"></i><span> 读小说</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 玩游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-tools"></i><span> 工具</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://img.nerocats.com/"><i class="fa-fw iconfont icon-shenghuofuwu"></i><span> 橙子图床</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://img2.nerocats.com/"><i class="fa-fw iconfont icon-ditu"></i><span> Chevereto图床</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://pan.nerocats.com/"><i class="fa-fw iconfont icon-nextcloud"></i><span> NextCloud</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://yun.nerocats.com/"><i class="fa-fw iconfont icon-cloud"></i><span> Cloudreve</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Docker版多网站签到</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-10-16T16:57:35.000Z" title="发表于 2020-10-17 00:57:35">2020-10-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-10-16T19:10:35.000Z" title="更新于 2020-10-17 03:10:35">2020-10-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%AB%99%E6%95%99%E7%A8%8B/">网站教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Docker版多网站签到"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
 <p>其实这个很简单，写下来也就当记录一下，顺便给某些人看看。</p>
 </blockquote>
 <h3 id="扯点闲话"><a href="#扯点闲话" class="headerlink" title="扯点闲话"></a>扯点闲话</h3><p>之前，讲过<a target="_blank" rel="noopener" href="https://www.nerocats.cn/posts/5f03d576/">Docker版京东签到</a>，但是这个只适用京东的一系列签到，如果需要签到其他网站就需要这个<a target="_blank" rel="noopener" href="https://github.com/binux/qiandao">签到项目</a>，之前我也用过，但是当时也没啥需求，用了一阵就删掉了。前段时间，没事做，赶巧上了pt，本来就随便玩玩，但是又不想被删号，所以就想弄个自动签到，每天领取一点魔力值保留一下账号（虽然我也不知道能不能保留住），就搜索了一下，真有项目，就是<a target="_blank" rel="noopener" href="https://github.com/wdjoys/pt-tools">这个</a>，试了一下挺好用的，但是担心github的ip变动多且与我的ip差异太大，担心被ban，所以就想自己本地弄一个，并且多数的pt站点签到过于简单，就是单纯访问一下<code>/attendance.php</code>这个网页就能完成签到。所以我就想到了之前用过的，适用于大多数网站的通用型签到项目。好在这个项目也有别人打包好的docker镜像，我们只需要拿来用就可以啦。</p>
@@ -227,80 +224,73 @@ gtag('config', 'UA-167591798-1');
 <p><img src="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange/typora/image-20201017030101465.png"></p>
 <p>非公共模块：</p>
 <p>当然也有很多网站在公共模块中没有，这时候就需要自己去新建了，具体参考<a target="_blank" rel="noopener" href="https://github.com/binux/qiandao/blob/master/docs/har-howto.md">这篇文档</a>。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Alex</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://nerocats.cn/posts/755313e6/">https://nerocats.cn/posts/755313e6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://nerocats.cn" target="_blank">尼禄猫</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/docker/">docker</a><a class="post-meta__tags" href="/tags/%E7%AD%BE%E5%88%B0/">签到</a><a class="post-meta__tags" href="/tags/qiandao/">qiandao</a><a class="post-meta__tags" href="/tags/keylol/">keylol</a></div><div class="post_share"><div class="social-share" data-image="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/10/17/db33d1b2be8f7558c87074968f6c398e.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://jsd.cdn.zzko.cn/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://jsd.cdn.zzko.cn/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/e141e29e/"><img class="prev-cover" src="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/11/08/06d9753d6446255d1f3c349ef09118c8.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">友情分享</div></div></a></div><div class="next-post pull-right"><a href="/posts/5f03d576/"><img class="next-cover" src="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/09/16/3cc4f024e03fd129850c87de18001d1e.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Docker版京东签到</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/5f03d576/" title="Docker版京东签到"><img class="cover" src="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/09/16/3cc4f024e03fd129850c87de18001d1e.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-16</div><div class="title">Docker版京东签到</div></div></a></div><div><a href="/posts/25091ef1/" title="利用docker完美搭建NextCloud，实现私有网盘"><img class="cover" src="https://img.nerocats.com/ali/2023/07/26/64c084b5035a8.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-10</div><div class="title">利用docker完美搭建NextCloud，实现私有网盘</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Twikoo</span><span class="switch-btn"></span><span class="second-comment">Valine</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/18704880?v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Alex</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/QCenjoyLL"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/QCEnjoyLL" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:orange@nerocats.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">新的地点，新的开始</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%AF%E7%82%B9%E9%97%B2%E8%AF%9D"><span class="toc-number">1.</span> <span class="toc-text">扯点闲话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Docker%E5%8F%8ACecos-Caas"><span class="toc-number">2.1.</span> <span class="toc-text">安装Docker及Cecos-Caas</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F"><span class="toc-number">2.2.</span> <span class="toc-text">拉取镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96Server%E9%85%B1-SCKEY"><span class="toc-number">2.3.</span> <span class="toc-text">获取Server酱 SCKEY</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E8%A3%85%E8%BD%BD"><span class="toc-number">3.</span> <span class="toc-text">开始装载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%BE%E5%88%B0%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">签到设置</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/884863d2/" title="Picx图床"><img src="https://i0.wp.com/raw.githubusercontent.com/QCEnjoyLL/orange/master/20231031/1698684486236.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Picx图床"/></a><div class="content"><a class="title" href="/posts/884863d2/" title="Picx图床">Picx图床</a><time datetime="2023-10-30T16:33:02.000Z" title="发表于 2023-10-31 00:33:02">2023-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e4113a59/" title="如何获取京东Cookies"><img src="https://img.nerocats.com/thumbnails/be111c7386b29b45bd41c4c478b6f777.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何获取京东Cookies"/></a><div class="content"><a class="title" href="/posts/e4113a59/" title="如何获取京东Cookies">如何获取京东Cookies</a><time datetime="2021-08-30T11:50:25.000Z" title="发表于 2021-08-30 19:50:25">2021-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/26f9848d/" title="免费分享"><img src="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@092da95a54b98eb38af05b731418426368e7712c/2021/06/05/c029a13fe3202fe4b8e9733165d5fc45.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="免费分享"/></a><div class="content"><a class="title" href="/posts/26f9848d/" title="免费分享">免费分享</a><time datetime="2021-06-05T14:05:25.000Z" title="发表于 2021-06-05 22:05:25">2021-06-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/88ef9a4d/" title="jd互助码提交"><img src="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/12/05/6c332e2f718736496b49d1fa5b3ca406.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="jd互助码提交"/></a><div class="content"><a class="title" href="/posts/88ef9a4d/" title="jd互助码提交">jd互助码提交</a><time datetime="2020-12-04T20:54:43.000Z" title="发表于 2020-12-05 04:54:43">2020-12-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c259451a/" title="Github Action 的妙用"><img src="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/12/03/6eed3cc27dbed110d9799e0eba3c4c6f.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Github Action 的妙用"/></a><div class="content"><a class="title" href="/posts/c259451a/" title="Github Action 的妙用">Github Action 的妙用</a><time datetime="2020-12-03T06:26:15.000Z" title="发表于 2020-12-03 14:26:15">2020-12-03</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/10/17/db33d1b2be8f7558c87074968f6c398e.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Alex</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">本网站由 <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="nofollow"><img src="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@cf13e5121e35cd3d914ffb2abf1709ca439430ba/2021/05/02/46a0615f75b3b24a8d22d580e3da27b4.png" height="23" width="50"></a> 提供CDN加速/云存储服务</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
-  const $countDom = document.getElementById('twikoo-count')
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://nerocats.cn">Alex</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://nerocats.cn/posts/755313e6/">https://nerocats.cn/posts/755313e6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://nerocats.cn" target="_blank">尼禄猫</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/docker/">docker</a><a class="post-meta__tags" href="/tags/%E7%AD%BE%E5%88%B0/">签到</a><a class="post-meta__tags" href="/tags/qiandao/">qiandao</a><a class="post-meta__tags" href="/tags/keylol/">keylol</a></div><div class="post_share"><div class="social-share" data-image="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/10/17/db33d1b2be8f7558c87074968f6c398e.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/e141e29e/" title="友情分享"><img class="cover" src="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/11/08/06d9753d6446255d1f3c349ef09118c8.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">友情分享</div></div></a></div><div class="next-post pull-right"><a href="/posts/5f03d576/" title="Docker版京东签到"><img class="cover" src="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/09/16/3cc4f024e03fd129850c87de18001d1e.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Docker版京东签到</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/5f03d576/" title="Docker版京东签到"><img class="cover" src="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/09/16/3cc4f024e03fd129850c87de18001d1e.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-16</div><div class="title">Docker版京东签到</div></div></a></div><div><a href="/posts/25091ef1/" title="利用docker完美搭建NextCloud，实现私有网盘"><img class="cover" src="https://img.nerocats.com/ali/2023/07/26/64c084b5035a8.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-10</div><div class="title">利用docker完美搭建NextCloud，实现私有网盘</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div class="comment-switch"><span class="first-comment">Twikoo</span><span id="switch-btn"></span><span class="second-comment">Valine</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/18704880?v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Alex</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/QCEnjoyLL"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/QCEnjoyLL" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:orange@nerocats.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">新的地点，新的开始</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%AF%E7%82%B9%E9%97%B2%E8%AF%9D"><span class="toc-number">1.</span> <span class="toc-text">扯点闲话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Docker%E5%8F%8ACecos-Caas"><span class="toc-number">2.1.</span> <span class="toc-text">安装Docker及Cecos-Caas</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F"><span class="toc-number">2.2.</span> <span class="toc-text">拉取镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96Server%E9%85%B1-SCKEY"><span class="toc-number">2.3.</span> <span class="toc-text">获取Server酱 SCKEY</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E8%A3%85%E8%BD%BD"><span class="toc-number">3.</span> <span class="toc-text">开始装载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%BE%E5%88%B0%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">签到设置</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/884863d2/" title="Picx图床"><img src="https://i0.wp.com/raw.githubusercontent.com/QCEnjoyLL/orange/master/20231031/1698684486236.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Picx图床"/></a><div class="content"><a class="title" href="/posts/884863d2/" title="Picx图床">Picx图床</a><time datetime="2023-10-30T16:33:02.000Z" title="发表于 2023-10-31 00:33:02">2023-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e4113a59/" title="如何获取京东Cookies"><img src="https://img.nerocats.com/thumbnails/be111c7386b29b45bd41c4c478b6f777.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何获取京东Cookies"/></a><div class="content"><a class="title" href="/posts/e4113a59/" title="如何获取京东Cookies">如何获取京东Cookies</a><time datetime="2021-08-30T11:50:25.000Z" title="发表于 2021-08-30 19:50:25">2021-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/26f9848d/" title="免费分享"><img src="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@092da95a54b98eb38af05b731418426368e7712c/2021/06/05/c029a13fe3202fe4b8e9733165d5fc45.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="免费分享"/></a><div class="content"><a class="title" href="/posts/26f9848d/" title="免费分享">免费分享</a><time datetime="2021-06-05T14:05:25.000Z" title="发表于 2021-06-05 22:05:25">2021-06-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/88ef9a4d/" title="jd互助码提交"><img src="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/12/05/6c332e2f718736496b49d1fa5b3ca406.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="jd互助码提交"/></a><div class="content"><a class="title" href="/posts/88ef9a4d/" title="jd互助码提交">jd互助码提交</a><time datetime="2020-12-04T20:54:43.000Z" title="发表于 2020-12-05 04:54:43">2020-12-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c259451a/" title="Github Action 的妙用"><img src="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/12/03/6eed3cc27dbed110d9799e0eba3c4c6f.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Github Action 的妙用"/></a><div class="content"><a class="title" href="/posts/c259451a/" title="Github Action 的妙用">Github Action 的妙用</a><time datetime="2020-12-03T06:26:15.000Z" title="发表于 2020-12-03 14:26:15">2020-12-03</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@latest/2020/10/17/db33d1b2be8f7558c87074968f6c398e.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Alex</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">本网站由 <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="nofollow"><img src="https://i0.wp.com/cdn.jsdelivr.net/gh/QCenjoyLL/orange@cf13e5121e35cd3d914ffb2abf1709ca439430ba/2021/05/02/46a0615f75b3b24a8d22d580e3da27b4.png" height="23" width="50"></a> 提供CDN加速/云存储服务</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
   const init = () => {
     twikoo.init(Object.assign({
       el: '#twikoo-wrap',
       envId: 'https://twikoo-chi.vercel.app/',
-      region: ''
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
     }, null))
   }
 
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(init,0)
+    else getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(init)
+  }
+
   const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
     twikoo.getCommentsCount({
       envId: 'https://twikoo-chi.vercel.app/',
       region: '',
       urls: [window.location.pathname],
       includeReply: false
-    }).then(function (res) {
-      $countDom.innerText = res[0].count
-    }).catch(function (err) {
-      console.error(err);
-    });
-  }
-
-  const loadTwikoo = (bool = false) => {
-    if (typeof twikoo === 'object') {
-      init()
-      bool && $countDom && setTimeout(getCount,0)
-    } else {
-      getScript('https://jsd.cdn.zzko.cn/npm/twikoo/dist/twikoo.all.min.js').then(()=> {
-        init()
-        bool && $countDom && setTimeout(getCount,0)
-      })
-    }
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
   }
 
   if ('Twikoo' === 'Twikoo' || !true) {
     if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
-    else loadTwikoo(true)
-  } else {
-    window.loadOtherComment = () => {
+    else {
       loadTwikoo()
+      GLOBAL_CONFIG_SITE.isPost && getCount()
     }
+  } else {
+    window.loadOtherComment = loadTwikoo
   }
-})()</script><script>function loadValine () {
-  function initValine () {
+})()</script><script>(() => {
+  const initValine = () => {
     const valine = new Valine(Object.assign({
       el: '#vcomment',
       appId: '5c90JNPuL9XF2VgRlfiUhXsH-gzGzoHsz',
       appKey: 'ywdbYFPRUQpyWatzsICwRF4C',
-      placeholder: '想说点啥？',
       avatar: 'monsterid',
-      meta: 'nick,mail,link'.split(','),
-      pageSize: '10',
-      lang: 'zh-CN',
-      recordIP: false,
       serverURLs: '',
-      emojiCDN: '',
       emojiMaps: "",
-      enableQQ: false,
       path: window.location.pathname,
-      requiredFields: ["nick,mail"],
       visitor: false
     }, null))
   }
 
-  if (typeof Valine === 'function') initValine() 
-  else getScript('https://jsd.cdn.zzko.cn/npm/valine/dist/Valine.min.js').then(initValine)
-}
-
-if ('Twikoo' === 'Valine' || !true) {
-  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
-  else setTimeout(loadValine, 0)
-} else {
-  function loadOtherComment () {
-    loadValine()
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
+      initValine()
+    }
   }
-}</script></div><script id="click-heart" src="https://jsd.cdn.zzko.cn/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+
+  if ('Twikoo' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
